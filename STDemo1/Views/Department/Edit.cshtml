@@ -1,0 +1,43 @@
+﻿@model STDemo1.Models.Department
+
+@{
+    Layout = "_Layout2";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit Department</title>
+</head>
+<body>
+    <h1>Edit Department</h1>
+
+    <form method="post" asp-action="Edit">
+        <input asp-for="DeptId" type="hidden" />
+
+        <div class="form-group">
+            <label asp-for="DeptName" class="control-label"></label>
+            <input asp-for="DeptName" class="form-control" />
+            <span asp-validation-for="DeptName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Capacity" class="control-label"></label>
+            <input asp-for="Capacity" class="form-control" />
+            <span asp-validation-for="Capacity" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DeptId" class="control-label">Department</label>
+            <select asp-for="DeptId" class="form-control" asp-items="@(new SelectList(ViewBag.depts, "DeptId", "DeptName"))">
+                <option value="">Select Department</option>
+            </select>
+            <span asp-validation-for="DeptId" class="text-danger"></span>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Update" />
+    </form>
+
+</body>
+</html>

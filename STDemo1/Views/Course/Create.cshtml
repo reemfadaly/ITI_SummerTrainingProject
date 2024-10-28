@@ -1,0 +1,32 @@
+﻿@model Course
+@{
+    Layout = "_Layout2";
+    SelectList deptsl = new SelectList(ViewBag.depts, "DeptId", "DeptName");
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <form action="/course/create" method="post">
+       @* <label asp-for="Id"> ID</label> <input asp-for="Id" /><br />         @*asp-for serverside function checks with the model defined above. helps with the constraints related to the model*@
+        Name <input asp-for="Name" /><br />
+        <select asp-for="DeptId" asp-items="deptsl"></select>
+        <input type="submit" value="add" />
+    </form>
+
+    <script src="\lib\jquery\dist\jquery.js"></script>
+    <script src="\lib\jquery-validation\dist\jquery.validate.js"></script>
+    <script src="\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js"></script>
+
+
+</body>
+
+
+</html>
+

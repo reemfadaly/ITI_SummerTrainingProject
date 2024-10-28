@@ -1,0 +1,85 @@
+﻿@{
+    Layout = null;
+    int age = 60;
+    int x = 10;
+    string[] names = new string[] { "ahmed", "aly", "sara" };
+    Department dept = new Department() { DeptId = 10, DeptName = "es", Capacity = 66 };
+    Student student = new Student() { Id = 1, Name = "Ahmed", Age = 18 };
+    List<Department> depts = new List<Department>()
+    {
+        new Department() {DeptId=1, DeptName="sd", Capacity=50},
+        new Department() {DeptId=2, DeptName="es", Capacity=40},
+        new Department() {DeptId=3, DeptName="el", Capacity=30},
+    };
+    List<Student> students = new List<Student>()
+    {
+        new Student() {Id=1, Name="Ahmed", Age=18},
+        new Student() {Id=2, Name="Reem", Age=20},
+        new Student() {Id=3, Name="Hossam", Age=22},
+    };
+}
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Capacity</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (depts.Count == 0)
+            {
+                <tr><td colspan="3"> No departments found</td></tr>
+            }
+            else
+            {
+                @foreach (var item in depts)
+                {
+                    <tr>
+                        <td>@item.DeptId</td>
+                        <td>@item.DeptName</td>
+                        <td>@item.Capacity</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    <h1>
+        @dept.DeptId :: @dept.DeptName :: @dept.Capacity <!--prints 10:es:66-->
+    </h1>
+
+    <ul>
+        @foreach (var item in names)
+        {
+            <li>@item</li> <!--prints each name in the array-->
+        }
+    </ul>
+
+    <h1>x</h1> <!--prints "x" as it is-->
+    <h1>@x</h1> <!--prints value of x-->
+    <h1>@(age + 1)</h1> <!--evaluates and prints the expression (age + 1)-->
+
+    <h1> Hello from MVC first App</h1>
+
+    @if (age > 30)
+    {
+        <div>
+            Age is greater than 30
+        </div>
+    }
+    else
+    {
+        <div>
+            Age is less than 30
+        </div>
+    }
+
+</body>
+</html>

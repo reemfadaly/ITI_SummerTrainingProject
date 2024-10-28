@@ -1,0 +1,34 @@
+﻿@model STDemo1.Models.Student
+
+@{
+    Layout = "_Layout2";
+}
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <form method="POST">
+    < input asp-for="Id" type="hidden" value="@Model.Id" /><br />
+<label>Student Name</label>
+<input asp-for="Name" value="@Model.Name" /><br>
+<label>Age</label>
+<input asp-for="Age" value="@Model.Age" /><br>
+<label>Email</label>
+<input asp-for="Email" value="@Model.Email" /><br>
+<select asp-for="DeptId" value="@Model.Department.DeptName">
+     @foreach (var item in ViewBag.depts)
+        {
+            <option value="item.DeptId">@item.DeptName</option>
+        }
+</select> <br/>
+<input class="form-control" type="submit" value="Update" />
+    </form>
+
+</body>
+</html>

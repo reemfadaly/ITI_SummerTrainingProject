@@ -1,0 +1,37 @@
+﻿@model Department
+@{
+    Layout = "_Layout2";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+    <table class="table table-bordered">
+        <tr>
+            <th>Department ID</th>
+            <td>@Model.DeptId</td>
+        </tr>
+        <tr>
+            <th>Department Name</th>
+            <td>@Model.DeptName</td>
+        </tr>
+        <tr>
+            <th>Capacity</th>
+            <td>@Model.Capacity</td>
+        </tr>
+    </table>
+    <a asp-action="Index" class="btn btn-primary">Back to List</a>
+    </div>
+    
+</body>
+
+
+</html>
+

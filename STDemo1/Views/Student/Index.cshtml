@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Student>
+@{
+    Layout = "_Layout2";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+</head>
+<body>
+    <a asp-action="create" class="btn btn-primary">Create</a>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Department</th>
+                <th>Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Age</td>
+                    <td>@item.Department.DeptName</td>
+                    <td>
+                        <a asp-action="details" as-controller="student" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+                        <a asp-action="edit" as-controller="student" asp-route-id="@item.Id" class="btn btn-info">Edit</a>
+                        <a asp-action="delete" onclick="return confirm('Are you sure?')" asp-controller="student" asp-route-id="@item.DeptId" class="btn btn-danger">Delete</a>
+                    </td>
+                    </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
+
+
+</html>
+

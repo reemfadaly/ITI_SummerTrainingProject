@@ -1,0 +1,25 @@
+﻿@model Course
+@{
+    Layout = "_Layout2";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    are you sure delete name: @Model.Id
+    <form asp-action="DeleteConfirmed" method="post">
+        <input asp-for="Id" type="hidden" />
+        <input type="submit" value="delete" />
+    </form>
+    <a asp-action="index"> GO to List</a>
+
+
+</body>
+</html>
+
+
