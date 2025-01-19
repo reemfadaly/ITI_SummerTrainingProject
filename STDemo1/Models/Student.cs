@@ -15,21 +15,18 @@ namespace STDemo1.Models
         public string Name { get; set; }
 
         [Range(10,20)]
-        public int? Age { get; set; } //? accepts null
+        public int? Age { get; set; } 
         public int DeptId { get; set; }
-        //for different naming 
-        //[ForeignKey("Department")]    
-        //public int? DeptNo {get; set;}  ?is for nullable (to be not required )
+       
         [Required]
-        [RegularExpression(@"[a-zA-Z0-9_]*@[a-zA-Z]+.[a-zA-Z]{2,4}")] //* zero or more  + one or more
+        [RegularExpression(@"[a-zA-Z0-9_]*@[a-zA-Z]+.[a-zA-Z]{2,4}")] 
         [Remote(action: "IsEmailAvailable", controller: "Student")]
         public string Email {  get; set; }
 
         [Required, StringLength(15)]
         public string Password { get; set; }    
-        [NotMapped] //no need to create a confirmpassword column in db
+        [NotMapped] 
         [Compare("Password")]
-        //[MyValidation] for more validation, customize it using new method in myvalidationattribute
         public string ConfirmPassword { get; set; }
         
         [ForeignKey("DeptId")]
