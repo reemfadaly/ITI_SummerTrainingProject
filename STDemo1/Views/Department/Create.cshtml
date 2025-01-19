@@ -11,11 +11,8 @@
     <title>Details</title>
 </head>
 <body>
-    <form action="/department/create" method="post"> @*action: url i want it to be navigated to*@ @*for security to not show the data in the url, use post but the default is get*@
-       @* Department ID<input type="text" name="deptid" /> <br /> name: key that has a value in it *@
-       @*Department Name<input type="password" name="deptname" />  <br /> for hiding input data, type="password" *@
-       @*Department Capacity<input type="text" name="capacity" />  <br /> it adds data to the same url *@
-        <label asp-for="DeptId">Department ID</label> <input asp-for="DeptId"/><br/>         @*asp-for serverside function checks with the model defined above. helps with the constraints related to the model*@
+    <form action="/department/create" method="post"> 
+        <label asp-for="DeptId">Department ID</label> <input asp-for="DeptId"/><br/>        
         Department Name <input asp-for="DeptName"/><br/> 
         Department Capacity <input asp-for="Capacity" /><br />
         <input type="submit" value="add" />
