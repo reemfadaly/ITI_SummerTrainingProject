@@ -11,10 +11,8 @@ namespace STDemo1.Controllers
 {
     public class StudentController : Controller
     {
-            // ------------ADD Student--------------
-            //ITIContext db = new ITIContext();
-            IStudentRepo studentRepo; //= new StudentRepo();
-            IDepartmentRepo departmentRepo; //= new DepartmentRepo();
+            IStudentRepo studentRepo; 
+            IDepartmentRepo departmentRepo; 
             
             public StudentController(IDepartmentRepo _departmentRepo, IStudentRepo _studentRepo)
         {
@@ -23,13 +21,13 @@ namespace STDemo1.Controllers
         }
             public IActionResult Create()
             {
-            ViewBag.depts = departmentRepo.GetAll(); //join student with departments
+            ViewBag.depts = departmentRepo.GetAll(); 
             return View();
             }
         [HttpPost]
-            public IActionResult Create(Student student) //Model Binder
+            public IActionResult Create(Student student) 
             {
-            if (ModelState.IsValid)  //checks on the data entered matches the annotation
+            if (ModelState.IsValid)  
             {
                 studentRepo.Add(student);
                 return RedirectToAction("Index");
@@ -114,7 +112,7 @@ namespace STDemo1.Controllers
 
         public IActionResult Index()
             {
-                var students = studentRepo.GetAll(); //join students w departments
+                var students = studentRepo.GetAll(); 
                 return View(students);
 
                 
