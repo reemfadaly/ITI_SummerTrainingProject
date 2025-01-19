@@ -25,12 +25,7 @@
 
         <label asp-for="DeptId"></label>
 
-        <select asp-for="DeptId" asp-items="deptsl"> @*select list*@
-            @*option list for departments*@
-           @* @foreach(Department item in ViewBag.depts)
-            {
-                <option value="@item.DeptId">@item.DeptName</option>
-            } *@
+        <select asp-for="DeptId" asp-items="deptsl"> 
         </select>
         <input type="submit" value="add" />
         </form>
