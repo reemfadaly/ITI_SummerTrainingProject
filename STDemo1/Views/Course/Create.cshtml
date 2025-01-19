@@ -14,7 +14,6 @@
 </head>
 <body>
     <form action="/course/create" method="post">
-       @* <label asp-for="Id"> ID</label> <input asp-for="Id" /><br />         @*asp-for serverside function checks with the model defined above. helps with the constraints related to the model*@
         Name <input asp-for="Name" /><br />
         <select asp-for="DeptId" asp-items="deptsl"></select>
         <input type="submit" value="add" />
