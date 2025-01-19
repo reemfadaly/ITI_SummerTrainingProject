@@ -10,7 +10,6 @@ namespace STDemo1
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the DI container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddTransient<IDepartmentRepo, DepartmentRepo>(); 
             builder.Services.AddTransient<IStudentRepo,  StudentRepo>();
@@ -23,16 +22,14 @@ namespace STDemo1
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
 
-            //******order of middlewares is important*****
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-            app.UseStaticFiles(); //like bootstrap
+            app.UseStaticFiles(); 
 
-            app.UseRouting();   //name of controller/name of action
+            app.UseRouting();  
 
             app.UseAuthorization();
 
@@ -40,24 +37,11 @@ namespace STDemo1
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
-            //if we changes the pattern order pattern: "{{action=Index}/controller=Home}/{id?}"); i need to use ip the same pattern as defined here
-            //create/department
+           
 
             app.Run();
 
-            //app.Use(async (context, next) =>    //going to next middleware //use
-            //{
-            //    //context.Response.ContentType = "text/plain";
-            //    await context.Response.WriteAsync("Welcome from first middleware"); //1
-            //    await next.Invoke(); //call the next middleware
-            //    await context.Response.WriteAsync("\n after return from next middleware"); //3
-            //});
-
-            //app.Run(async context =>    //short circuit the request //run ***with only middle ware (nothing before or after)*** 
-            //{
-            //    context.Response.ContentType = "text/plain";
-            //    await context.Response.WriteAsync("\n Welcome from first middleware"); //2
-            //});
+           
         }
     }
 }
